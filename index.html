@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Preview</title>
+    <script src="./js/marked.js"></script>
+    <script>
+
+        function updatePreview(){
+        let previewElement = document.getElementById("preview");
+        let editorValue = document.getElementById("editor").value;
+        let markedUpValue=marked(editorValue);
+        previewElement.innerHTML= markedUpValue;
+        }
+
+        function setDefault(){
+            let defaultText= `
+# Welcome to Markdown Previewer
+## I have written javascript
+[GitHub](http://github.com)
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+\`Thank You\`
+
+\`\`\`
+function example(){
+    return c;
+}
+\`\`\`
+
+- Code
+- HTML
+- Bootstrap
+
+> It's a Markdown Previewer
+> Yes Its Working
+
+
+![Image Unavaiable](https://m.jpg)
+<img src="https://m.media-amazon.com/images/M/MV5BMTM1NjUxMDI3OV5BMl5BanBnXkFtZTcwNjg1ODM3OA@@._V1_SY1000_SX696_AL_.jpg" width="300" height="300">
+
+        
+**MARKDOWN PREVIEWER**
+
+`;
+            let editorField = document.getElementById("editor");
+            let previewElement = document.getElementById("preview");
+            editorField.value = defaultText;
+            previewElement.innerHTML = marked(defaultText);
+        }
+    </script>
+    
+</head>
+<body onload="setDefault()">
+    <div class="container-fluid">
+        <div class="row">
+            <div class ="col text-center text-white btn-warning">
+        <h1>Markdown Preview</h1>
+    </div></div>
+
+    <div class="row">
+
+        <div class="col-6 btn-success d-flex flex-column">
+            <h2 class="text-center btn-danger">This is Editor</h2>
+            <div class="form-group flex-grow-1 d-flex flex-column">
+            <textarea id="editor" onkeyup="updatePreview()" class="form-control flex-grow-1" ></textarea>
+    </div></div>
+
+        
+    <div class="col-6 btn-danger">
+            <h2 class="text-center btn-danger">This is Preview</h2>
+            <div id="preview"></div>
+    </div>
+
+    </div>
+
+
+
+    
+
+
+</div><div id="mydiv"></div>
+
+
+
+
+
+    
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
